@@ -1,0 +1,66 @@
+<header class="header container-fluid">
+  <div class="navbar-area">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+              <img src="assets/img/logo/FOODNEXT_LOGO.png" alt="Logo" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <div class="row col-md-3 ml-2">
+                <ng-select placeholder="Search.." clearAllText="Clear all"
+                  class=" list-group ng-has-value ng-placeholder" [items]="stores" bindLabel="name" notFoundText=""
+                  bindValue="id" [(ngModel)]="selectedStore" (change)="navigateToStore()"
+                  (search)="getStoreByStoreName($event.term)">
+                </ng-select>
+
+              </div>
+              <div class="ml-3 ">
+                <i class="fa fa-search"></i>
+                <i class="fa-light fa-magnifying-glass"></i>
+              </div>
+
+
+              <ul id="nav" class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/shopping-cart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="badge badge-warning badge-pill text-dark" style="float:right;margin-bottom:-15px;">
+                      {{(myCart.calculateTotalCartItems())}}
+                    </span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="page-scroll" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" routerLink="/home/categories" href="#categories">Order now</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="#how">How it works</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="#about">About us</a>
+                </li>
+                <li class="nav-item">
+                  <button (click)="logout()" class="btn btn-danger">Logout</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

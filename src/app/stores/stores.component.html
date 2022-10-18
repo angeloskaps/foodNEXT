@@ -1,0 +1,20 @@
+<section id="stores" class="service-section pt-150 ">
+  <div class="container  text-center  ">
+
+    <div class="section-title text-center mb-10">
+      <span class="wow fadeInUp" data-wow-delay=".2s">{{storeCategory.name}} Stores </span>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let store of stores" class="card-img-overlay " class="card-shadow col-lg-6 col-md-4   mt-5"
+        style="width: 20rem;">
+
+        <div class="card-body shadow-lg ">
+          <h5 class="card-title text-center">{{store.name}}</h5>
+          <img src="{{ store.imgUrl }}" class="img-thumbnail  " alt="" />
+          <a routerLink="/products/{{store.id}}" class="btn menubtn d-block"> Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

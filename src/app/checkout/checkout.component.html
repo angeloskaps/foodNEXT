@@ -1,0 +1,133 @@
+<section id="checkout" class=" login-section pt-80">
+  <div class=" bg-image  d-flex bg-light align-items-center pt-2 ">
+    <div class="container ">
+      <div class="row">
+        <div class=" col-xl-5 ">
+          <div class="card bg-light p-4 pb-0 billing-details  text-r">
+            <form class="checkout-form  ">
+              <h2 class="text-center ">Checkout</h2>
+              <div class="row mt-2">
+                <div class="d-flex justify-content-between border-bottom">
+                  <h4 class="">Billing Details </h4>
+                  <h4 class="ml-5 pl-4">User Details</h4>
+                </div>
+
+
+                <div class="col-lg-6">
+                  <div class="col-lg-12">
+                    <div class="form-group mb-4 mt-2">
+                      <label for="company_name">Address</label>
+                      <select class="form-control">
+                        <option value="">Select an Option</option>
+                        <option *ngFor="let address of account.addressList" value="adrress1">{{ address.streetName + '
+                          ' + address.streetNumber + ', ' + address.postalCode}}</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-12">
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group mb-4">
+                        <label for="first_name">Order notes (optional)</label>
+                        <textarea class="form-control" id="msg" cols="10" rows="4"
+                          placeholder="Notes about order e:g: want to say something"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="col-lg-12">
+                    <div class="form-group mb-4 mt-2">
+                      <label for="company_name">Email</label>
+                      <p type="email" class="form-control">{{account.email}}</p>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group mb-4">
+                        <label for="first_name">Full Name</label>
+                        <p class="form-control" id="msg" cols="10" rows="2">{{account.fname}} {{account.lname}} </p>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group mb-4">
+                        <label for="first_name">Phone</label>
+                        <p class="form-control" id="msg" cols="10" rows="2">{{account.phone}} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-checkout-details">
+                  <div class="d-flex justify-content-between border-bottom">
+                    <h4>Payment Method</h4>
+                    <h4>Total</h4>
+                  </div>
+
+                  <h6 class="mt-2 text-right ">{{ myCart.totalPrice  | currency:'EUR' }}</h6>
+
+
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="WIRE"
+                      checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Direct bank transfer
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="CASH">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Cash
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                      value="PAY_PAL">
+                    <label class="form-check-label" for="exampleRadios2">
+                      PayPal
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck3" required>
+                    <label class="form-check-label" for="exampleCheck3">I have read and agree to the website
+                      terms and
+                      conditions *</label>
+                  </div>
+                  <div class="info mt-4 border-top pt-2 ">
+
+
+                    <button (click)="placeOrder()" href="#myModal" data-toggle="modal" type="button" class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm btn-danger ">Place
+                      Order</button>
+
+                    <!-- Modal HTML -->
+                    <div id="myModal" class="modal fade">
+                      <div class="modal-dialog modal-confirm">
+                        <div class="modal-content">
+                          <div class="modal-header justify-content-center">
+
+
+                          </div>
+                          <div class="modal-body text-center">
+                            <h4>Thank you!</h4>
+                            <p>Your order has been created successfully and it will be delivered at : </p><pre><b> {{account.addressList[0].streetName}} {{account.addressList[0].streetNumber}}, {{account.addressList[0].city}}</b></pre>
+                            <button class="btn btn-success" data-dismiss="modal"><span>Back to home</span> </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-7 col-xl-7 ">
+          <app-cart-summary></app-cart-summary>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

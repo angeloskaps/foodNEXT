@@ -1,0 +1,41 @@
+<section id="products" class="service-section pt-100 mb-4">
+  <div class="container">
+    <div *ngIf="store.imgUrl" class="text-center bg-image"> <img src="{{ store.imgUrl }}"
+        class="img-thumbnail rounded-circle  " alt="" />
+    </div>
+
+    <div *ngIf="store.name" class="store-title text-danger text-center">
+      <span class="wow fadeInUp" data-wow-delay=".2s"> {{store.name}} </span>
+    </div>
+    <div *ngIf="store.address" class="text-center mb-"> {{store.address}}</div>
+    <div class="text-center" *ngIf="this.myCart.items.length > 0">
+      <a routerLink="/checkout" class="btn btn-md  menubtn mb-4">Quick Checkout</a>
+    </div>
+    <div class="row">
+      <div *ngFor="let product of products" class="card-img-overlay " class="card-shadow col-lg-6 col-md-4   "
+        style="width: 20rem;">
+        <div class="card-body shadow-lg ">
+          <h5 class="card-title text-center">{{product.name}}</h5>
+
+          <div class="text-center">
+            <img src="{{ product.imgUrl }}" class="img-thumbnail rounded" alt="" />
+            <h6 class="card-body text-center">{{product.price}} €</h6>
+            <button *ngIf="myCart.getItemQuantityById(product.id) == 0" (click)="addToCart(product)"
+              class="btn menubtn  "> Add to Cart </button>
+            <span *ngIf="myCart.getItemQuantityById(product.id) != 0">
+              <span class="mr-2">
+                <button (click)="removeFromCart(product)" class="btn btn-md menubtn"><b>-</b></button>
+              </span>
+              <b>{{ myCart.getItemQuantityById(product.id) }}</b>
+              <span class="ml-2">
+                <button (click)="addToCart(product)" class="btn btn-md menubtn">+</button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>

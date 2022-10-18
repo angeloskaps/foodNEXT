@@ -1,0 +1,51 @@
+.thumbnail{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.card {
+  margin-bottom: 10px;
+
+
+}
+
+.shoppingcart{
+padding-left: 60px;
+
+
+}
+
+.menubtn{
+background-color:#DC143C;
+color:#ffffff;
+}
+
+.menubtn:hover{
+background-color: whitesmoke;
+color: #DC143C;
+text-shadow: 0.8px 0.8px #0c0b0b;
+
+}
+img {
+max-width: 50%;
+height: auto;
+}
+
+
+.cart-btm-img{
+
+background-image: url('src\assets\img\deliver.jpg' );
+background-repeat: no-repeat;
+background-position: left;
+background-size:85%;
+}
+
+.bg-color{
+
+background-color: #eeeeee;
+}
+
+
+
